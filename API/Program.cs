@@ -22,6 +22,10 @@ app.MapGet("/getProduct/{code}", ([FromRoute] string code) => {
     return code;
 });
 
+app.MapGet("/getProductByHeader", (HttpRequest request) => {
+    return request.Headers["product-code"].ToString();
+});
+
 app.Run();
 
 public class Product {
