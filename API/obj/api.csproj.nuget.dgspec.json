@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\KDI_workspace\\Curso .NET 6 WEB API\\api\\api.csproj": {}
+    "C:\\KDI_workspace\\Curso .NET 6 WEB API\\API\\api.csproj": {}
   },
   "projects": {
-    "C:\\KDI_workspace\\Curso .NET 6 WEB API\\api\\api.csproj": {
+    "C:\\KDI_workspace\\Curso .NET 6 WEB API\\API\\api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\KDI_workspace\\Curso .NET 6 WEB API\\api\\api.csproj",
+        "projectUniqueName": "C:\\KDI_workspace\\Curso .NET 6 WEB API\\API\\api.csproj",
         "projectName": "api",
-        "projectPath": "C:\\KDI_workspace\\Curso .NET 6 WEB API\\api\\api.csproj",
+        "projectPath": "C:\\KDI_workspace\\Curso .NET 6 WEB API\\API\\api.csproj",
         "packagesPath": "C:\\Users\\VantercarlosQuaresma\\.nuget\\packages\\",
-        "outputPath": "C:\\KDI_workspace\\Curso .NET 6 WEB API\\api\\obj\\",
+        "outputPath": "C:\\KDI_workspace\\Curso .NET 6 WEB API\\API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
