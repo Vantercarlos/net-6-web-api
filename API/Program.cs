@@ -14,31 +14,36 @@ app.MapGet("/AddHeader", (HttpResponse response) => {
     return new {Name = "Vantercarlos", Age = 41};
 });
 
-app.MapPost("/saveProduct", (Product product) => {
-    ProductRepository.Add(product);
-});
-
-app.MapGet("/getProduct/{code}", ([FromRoute] string code) => {
-    var product = ProductRepository.GetBy(code);
-    return product;
-});
-
-app.MapGet("/getProduct", ([FromQuery] string dateStart, [FromQuery] string dateEnd) => {
-    return dateStart + " - " + dateEnd;
-});
-
 app.MapGet("/getProductByHeader", (HttpRequest request) => {
     return request.Headers["product-code"].ToString();
 });
 
-app.MapPut("/editProduct", (Product product) => {
-    var productSaved = ProductRepository.GetBy(product.Code);
-    productSaved.Name = product.Name;
+app.MapGet("/products/{code}", ([FromRoute] string code) => {
+    var product = ProductRepository.GetBy(code);
+    if(product != null)
+        return Results.Ok(product);
+    return Results.NotFound();
 });
 
-app.MapDelete("/deleteProduct/{code}", ([FromRoute] string code) => {
+app.MapGet("/products", ([FromQuery] string dateStart, [FromQuery] string dateEnd) => {
+    return dateStart + " - " + dateEnd;
+});
+
+app.MapPost("/products", (Product product) => {
+    ProductRepository.Add(product);
+    return Results.Created($"/products/{product.Code}", product.Code);
+});
+
+app.MapPut("/products", (Product product) => {
+    var productSaved = ProductRepository.GetBy(product.Code);
+    productSaved.Name = product.Name;
+    return Results.Ok();
+});
+
+app.MapDelete("/products/{code}", ([FromRoute] string code) => {
     var productSaved = ProductRepository.GetBy(code);
     ProductRepository.Remove(productSaved);
+    return Results.Ok();
 });
 
 app.Run();
